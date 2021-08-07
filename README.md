@@ -32,6 +32,7 @@ Technologies or Tools Used:
 * TestNG to support test annotations.
 * selenium
 * java
+* Log4J for Logging purpose
 
 
 
