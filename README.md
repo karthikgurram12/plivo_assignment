@@ -18,4 +18,21 @@ The implemented script will perform the below steps:
 12. End the call at Caller side.
 13. Teardown the two chrome Tabs.
 
+To run the Test in Chrome, the configuration properties should be:
+#Automated for chrome and firefox
+browser=chrome
+#Automated for Web SDK and Android
+applicationType=webdriver
+
+Main Test method that covers above code will be in PlivoMakeCallFromCallerToCalle class and method name is makeCallUsingPlivoWebSDK
+
+Technologies or Tools Used:
+* Page Object Model and Page Factory
+* Maven To add dependencies
+* TestNG to support test annotations.
+* selenium
+* java
+
+
+
 
