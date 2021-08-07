@@ -19,9 +19,7 @@ The implemented script will perform the below steps:
 13. Teardown the two chrome Tabs.
 
 To run the Test in Chrome, the configuration properties should be:
-#Automated for chrome and firefox
-browser=chrome
-#Automated for Web SDK and Android
+browser=chrome, 
 applicationType=webdriver
 
 Main Test method that covers above code will be in PlivoMakeCallFromCallerToCalle class and method name is makeCallUsingPlivoWebSDK
