@@ -6,17 +6,14 @@ To run the Test in Chrome using plivo web sdk, the configuration properties shou
 **browser=chrome, 
 applicationPlatform=web**
 
-To run the Test in Chrome using plivo web sdk, the configuration properties should be:
-**browser=chrome, 
+To run the Test in firefox using plivo web sdk, the configuration properties should be:
+**browser=firefox, 
 applicationPlatform=web**
 
 To run the Test in android device using plivo android sdk, the configuration properties should be:
 **applicationPlatform=android**
 
-**Automated the Outbounding call from Caller to Calle for web sdk and android sdk**
-
-
-The implemented script will perform the below steps in web (chrome, firefox):
+**The Result of the Automated Test Script for web sdk is as follows:**
 
 1. It will launch the plivo Web SDK in browser (Automated for both chrome and firefox).
 2. Performs the login with Caller Credentials.
@@ -60,6 +57,7 @@ c.	Result for the Test script: **available under result package**
 * selenium
 * java
 * Log4J for Logging purpose
+* Appium
 
 
 
