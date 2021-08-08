@@ -2,20 +2,21 @@
 
 **Config changes needed in Configuration.properties file:**
 
-**To run the Test in Chrome using plivo web sdk, the configuration properties should be:**
-browser=chrome, 
-applicationPlatform=web
+To run the Test in Chrome using plivo web sdk, the configuration properties should be:
+**browser=chrome, 
+applicationPlatform=web**
 
-**To run the Test in Chrome using plivo web sdk, the configuration properties should be:**
-browser=chrome, 
-applicationPlatform=web
+To run the Test in Chrome using plivo web sdk, the configuration properties should be:
+**browser=chrome, 
+applicationPlatform=web**
 
-**To run the Test in android device using plivo android sdk, the configuration properties should be:**
-applicationPlatform=android
+To run the Test in android device using plivo android sdk, the configuration properties should be:
+**applicationPlatform=android**
 
 **Automated the Outbounding call from Caller to Calle for web sdk and android sdk**
-**
-The implemented script will perform the below steps in web (chrome, firefox):**
+
+
+The implemented script will perform the below steps in web (chrome, firefox):
 
 1. It will launch the plivo Web SDK in browser (Automated for both chrome and firefox).
 2. Performs the login with Caller Credentials.
@@ -47,8 +48,8 @@ The implemented script will perform the below steps in web (chrome, firefox):**
 a. Automation Scripts are available in:
 **Main Test methods that covers above code will be in PlivoMakeCallFromCallerToCalle class under src and method names are makeCallUsingPlivoWebSDK, makeCallUsingPlivoAndroidSDK**
 
-b.	Logs for the automation suite: available under result package
-c.	Result for the Test script: available under result package
+b.	Logs for the automation suite: **available under result package**
+c.	Result for the Test script: **available under result package**
 
 
 
