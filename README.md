@@ -18,11 +18,22 @@ The implemented script will perform the below steps:
 12. End the call at Caller side.
 13. Teardown the two chrome Tabs.
 
-To run the Test in Chrome, the configuration properties should be:
-browser=chrome, 
-applicationType=webdriver
+**Config changes needed in Configuration.properties file:**
 
-Main Test method that covers above code will be in PlivoMakeCallFromCallerToCalle class and method name is makeCallUsingPlivoWebSDK
+To run the Test in Chrome using plivo web sdk, the configuration properties should be:
+browser=chrome, 
+applicationPlatform=web
+
+To run the Test in Chrome using plivo web sdk, the configuration properties should be:
+browser=chrome, 
+applicationPlatform=web
+
+To run the Test in android device using plivo android sdk, the configuration properties should be:
+applicationPlatform=android
+
+
+
+Main Test methods that covers above code will be in PlivoMakeCallFromCallerToCalle class and method names are makeCallUsingPlivoWebSDK, makeCallUsingPlivoAndroidSDK
 
 Technologies or Tools Used:
 * Page Object Model and Page Factory
