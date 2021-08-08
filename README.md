@@ -1,8 +1,21 @@
 # plivo_assignment
 
-Automated the Outbounding call from Caller to Calle.
+**Config changes needed in Configuration.properties file:**
 
-The implemented script will perform the below steps:
+**To run the Test in Chrome using plivo web sdk, the configuration properties should be:**
+browser=chrome, 
+applicationPlatform=web
+
+**To run the Test in Chrome using plivo web sdk, the configuration properties should be:**
+browser=chrome, 
+applicationPlatform=web
+
+**To run the Test in android device using plivo android sdk, the configuration properties should be:**
+applicationPlatform=android
+
+**Automated the Outbounding call from Caller to Calle for web sdk and android sdk**
+**
+The implemented script will perform the below steps in web (chrome, firefox):**
 
 1. It will launch the plivo Web SDK in browser (Automated for both chrome and firefox).
 2. Performs the login with Caller Credentials.
@@ -18,24 +31,28 @@ The implemented script will perform the below steps:
 12. End the call at Caller side.
 13. Teardown the two chrome Tabs.
 
-**Config changes needed in Configuration.properties file:**
+**The Result of the Automated Test Script for android sdk is as follows:**
 
-To run the Test in Chrome using plivo web sdk, the configuration properties should be:
-browser=chrome, 
-applicationPlatform=web
-
-To run the Test in Chrome using plivo web sdk, the configuration properties should be:
-browser=chrome, 
-applicationPlatform=web
-
-To run the Test in android device using plivo android sdk, the configuration properties should be:
-applicationPlatform=android
-
+1. It will launch the android sdk in the mobile (if we are going to change the mobile, we have to change
+   the capabilities).
+2. Login with the caller credentials.
+3. Verify plivo homepage
+4. Make an Outbound Call to calle number
+5. Verify it navigates to page where we should see speaker and call end option ( Not able to make a call from
+   android app to callee so just verified whether it is navigating to other page or not.
+6. end call at caller end.
+7. Teardown the environment.
 
 
-Main Test methods that covers above code will be in PlivoMakeCallFromCallerToCalle class and method names are makeCallUsingPlivoWebSDK, makeCallUsingPlivoAndroidSDK
+a. Automation Scripts are available in:
+**Main Test methods that covers above code will be in PlivoMakeCallFromCallerToCalle class under src and method names are makeCallUsingPlivoWebSDK, makeCallUsingPlivoAndroidSDK**
 
-Technologies or Tools Used:
+b.	Logs for the automation suite: available under result package
+c.	Result for the Test script: available under result package
+
+
+
+**Technologies or Tools Used:**
 * Page Object Model and Page Factory
 * Maven To add dependencies
 * TestNG to support test annotations.
