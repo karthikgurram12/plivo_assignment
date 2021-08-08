@@ -13,9 +13,17 @@ import java.io.IOException;
 public class PlivoMakeCallFromCallerToCalle extends Site{
     private static final Logger log = LoggerFactory.getLogger(PlivoMakeCallFromCallerToCalle.class);
     
+    /************ Make Call Using Plivo Web Endpoint *********/
     @Test
     public void makeCallUsingPlivoWebSDK() throws IOException, InterruptedException {
         makeCall();
+    }
+
+    /************ Make Call Using Android plivo application *********/
+
+    @Test
+    public void makeCallUsingPlivoAndroidSDK() throws IOException, InterruptedException {
+        makeCallInAndroid();
     }
     
     public void makeCall() throws IOException, InterruptedException {
@@ -32,7 +40,7 @@ public class PlivoMakeCallFromCallerToCalle extends Site{
         
         log.info("Navigating to caller tab to make outbound call");
         plivoHomePageObject.navCallerTab();
-        plivoHomePageObject.MakeAnOutboundCall(getConfigValues().getProperty("callee"));
+        plivoHomePageObject.makeAnOutboundCall(getConfigValues().getProperty("callee"));
 
         log.info("Navigating to calle tab to answer incoming call");
         plivoHomePageObject.navCalleTab();
@@ -49,4 +57,27 @@ public class PlivoMakeCallFromCallerToCalle extends Site{
         tearDown();
         
     }
+
+    public void makeCallInAndroid() throws IOException, InterruptedException {
+
+        launchSite();
+        PlivoLoginPageObject plivoLoginPageObject= PageFactory.initElements(getWebDriver(), PlivoLoginPageObject.class);
+        log.info("Logging with the Caller credentials");
+        PlivoHomePageObject plivoHomePageObject = plivoLoginPageObject.appLogin(getConfigValues().getProperty("caller"), getConfigValues().getProperty("password"));
+        plivoHomePageObject.verifyCallerLoginSuccessInApp();
+
+        log.info("Make an Outbound Call and check call is going or not");
+        plivoHomePageObject.makeAnOutboundCallInApp(getConfigValues().getProperty("callee"));
+        
+        log.info("Verify call connection");
+        plivoHomePageObject.verifyCallConnectionInApp();
+
+        log.info("End the Call at Caller Side");
+        plivoHomePageObject.hangUpCallAtCallerSideInApp();
+
+        log.info("Closing the web application");
+        tearDown();
+
+    }
+    
 }

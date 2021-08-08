@@ -48,12 +48,30 @@ public class PlivoHomePageObject extends WebDriverHelper {
     @FindBy(id = "hangup")
     public WebElement hangUp;
     
+    @FindBy(id = "call_text")
+    public WebElement sipInputFld;
+    
+    @FindBy(id = "call_btn")
+    public WebElement appCallBtn;
+    
+    @FindBy(id = "speaker")
+    public WebElement appSpeakerBtn;
+    
+    @FindBy(id = "end_btn")
+    public WebElement endCallInApp;
+    
     public void verifyCallerLoginSuccess() throws IOException {
         waitForElement(sipUserNme);
         assertionHelper.getHardAssert().assertEquals(sipUserNme.getText(), readConfigValues().getProperty("caller")+"@phone.plivo.com", 
                 "SIP UserName is not visible or incorrect in HomePage");
         assertionHelper.getHardAssert().assertEquals(callStatus.getText(), HelperConstants.IDLE_STATUS);
         assertionHelper.getHardAssert().assertTrue(callBtn.isDisplayed());
+        log.info("Verified caller login");
+    }
+
+    public void verifyCallerLoginSuccessInApp() {
+        assertionHelper.getHardAssert().assertTrue(sipInputFld.isDisplayed());
+        assertionHelper.getHardAssert().assertTrue(appCallBtn.isDisplayed());
         log.info("Verified caller login");
     }
     
@@ -76,9 +94,15 @@ public class PlivoHomePageObject extends WebDriverHelper {
         driver.switchTo().window(getTotalTabs().get(1).toString());
     }
 
-    public void MakeAnOutboundCall(String calle) {
+    public void makeAnOutboundCall(String calle) {
         toNum.sendKeys(calle);
         callBtn.click();
+        log.info("Calling...");
+    }
+
+    public void makeAnOutboundCallInApp(String calle) {
+        sipInputFld.sendKeys(calle);
+        appCallBtn.click();
         log.info("Calling...");
     }
     
@@ -94,9 +118,20 @@ public class PlivoHomePageObject extends WebDriverHelper {
         assertionHelper.getHardAssert().assertEquals(callStatus.getText(), HelperConstants.ANSWERED_STATUS);
         log.info("Call Connected Successfully");
     }
+
+    public void verifyCallConnectionInApp() throws InterruptedException {
+        Thread.sleep(3000);
+        assertionHelper.getHardAssert().assertTrue(appSpeakerBtn.isDisplayed());
+        log.info("Call Connected Successfully");
+    }
     
     public void hangUpCallAtCallerSide(){
         hangUp.click();
+        log.info("Call Disconnected Successfully");
+    }
+    
+    public void hangUpCallAtCallerSideInApp(){
+        endCallInApp.click();
         log.info("Call Disconnected Successfully");
     }
     

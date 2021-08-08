@@ -2,15 +2,18 @@ package com.plivo.framework.commons;
 
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.*;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -20,8 +23,7 @@ public class WebDriverHelper {
     private static final Logger log = LoggerFactory.getLogger(WebDriverHelper.class);
     static WebDriver webDriver =null;
     static Properties configValues=null;
-    
-    
+
     public static Properties readConfigValues() throws IOException {
         FileReader reader=new FileReader("config//configuration.properties");
 
@@ -51,6 +53,24 @@ public class WebDriverHelper {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
+    
+    public static void getAppiumHelper() throws IOException {
+        readConfigValues();
+        DesiredCapabilities capabilities=new DesiredCapabilities();
+
+        capabilities.setCapability("deviceName", "Redmi Note 5 Pro");
+        capabilities.setCapability("platformVersion", "8.1.0");
+        capabilities.setCapability("PlatformName", "Android");
+        capabilities.setCapability("appPackage", "com.plivo.plivosimplequickstart");
+        capabilities.setCapability("appActivity", "com.plivo.plivosimplequickstart.LoginActivity");
+        capabilities.setCapability("newCommandTimeout", 60);
+        capabilities.setCapability("autoGrantPermissions", "true");
+        /*capabilities.setCapability("noReset", true);
+        capabilities.setCapability("fullReset", false);
+        capabilities.setCapability("autoWebview", true);*/
+        webDriver=new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4723/wd/hub"),capabilities);
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
     }
     
     public static ArrayList getTotalTabs(){

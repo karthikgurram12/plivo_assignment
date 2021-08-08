@@ -1,4 +1,5 @@
-The Result of the Automated Test Script is as follows:
+The Result of the Automated Test Script for web sdk is as follows:
+------------------------------------------------------------------
 
 1. It will launch the plivo Web SDK in browser (Automated for both chrome and firefox).
 2. Performs the login with Caller Credentials.

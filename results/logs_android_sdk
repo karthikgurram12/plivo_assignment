@@ -1,0 +1,21 @@
+Below are the logs generated for android sdk while running the test in android phone:
+-------------------------------------------------------------------------------------
+
+0 [main] INFO test.common.Site  - Launching Plivo Web SDK URL
+Aug 08, 2021 10:26:56 AM io.appium.java_client.remote.AppiumCommandExecutor$1 lambda$0
+INFO: Detected dialect: W3C
+14708 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Logging with the Caller credentials
+18721 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Login Successful
+20090 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Verified caller login
+20090 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Make an Outbound Call and check call is going or not
+21467 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Calling...
+21467 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Verify call connection
+25053 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Call Connected Successfully
+25053 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - End the Call at Caller Side
+25203 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Call Disconnected Successfully
+25203 [main] INFO test.plivo_tests.PlivoMakeCallFromCallerToCalle  - Closing the web application
+
+===============================================
+Default Suite
+Total tests run: 1, Passes: 1, Failures: 0, Skips: 0
+===============================================

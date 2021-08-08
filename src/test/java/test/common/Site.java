@@ -14,9 +14,13 @@ public class Site extends WebDriverHelper{
     public static void launchSite() throws IOException {
         BasicConfigurator.configure();
         log.info("Launching Plivo Web SDK URL");
-        getWebDriverHelper();
-        getWebDriver().get(getConfigValues().getProperty("webURL"));
-        log.info("Navigating to "+ getConfigValues().getProperty("webURL"));
+        if(readConfigValues().getProperty("applicationPlatform").equalsIgnoreCase("web")) {
+            getWebDriverHelper();
+            getWebDriver().get(getConfigValues().getProperty("webURL"));
+            log.info("Navigating to " + getConfigValues().getProperty("webURL"));
+        }else if(readConfigValues().getProperty("applicationPlatform").equalsIgnoreCase("android")){
+            getAppiumHelper();
+        }
     }
     
     public static void tearDown(){

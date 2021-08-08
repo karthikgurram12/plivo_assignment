@@ -1,0 +1,14 @@
+The Result of the Automated Test Script for android sdk is as follows:
+----------------------------------------------------------------------
+
+1. It will launch the android sdk in the mobile (if we are going to change the mobile, we have to change
+   the capabilities).
+2. Login with the caller credentials.
+3. Verify plivo homepage
+4. Make an Outbound Call to calle number
+5. Verify it navigates to page where we should see speaker and call end option ( Not able to make a call from
+   android app to callee so just verified whether it is navigating to other page or not.
+6. end call at caller end.
+7. Teardown the environment.
+
+--------------------------------------------  END  -------------------------------
